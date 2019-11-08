@@ -1,0 +1,75 @@
+{
+	"info": {
+		"_postman_id": "ae105f75-50df-41d2-afbe-20ccee8a145a",
+		"name": "Sicredi",
+		"description": "# Introduction\nWhat does your API do?\n\n# Overview\nThings that the developers should know about\n\n# Authentication\nWhat is the preferred way of using the API?\n\n# Error Codes\nWhat errors and status codes can a user expect?\n\n# Rate limit\nIs there a limit to the number of requests an user can send?",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": " http://5b847b30db24a100142dce1b.mockapi.io/api/v1/simulador ",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ea6f4e87-b632-4f79-b7dc-35843e785c00",
+						"exec": [
+							"// VALIDA O RETORNO COM O JSON\r",
+							"var responseJSON;\r",
+							"\r",
+							"try { \r",
+							"    responseJSON = JSON.parse(responseBody); \r",
+							"    tests['response is valid JSON'] = true;\r",
+							"}\r",
+							"catch (e) { \r",
+							"    responseJSON = {}; \r",
+							"    tests['response is valid JSON'] = false;\r",
+							"}\r",
+							"\r",
+							"//VERIFICA SE CONTÉM A CONDIÇÃO NO BODY\r",
+							"\r",
+							"tests['response json contains id'] = _.has(responseJSON, 'id');\r",
+							"\r",
+							"tests['response json contains meses'] = _.has(responseJSON, 'meses');\r",
+							"\r",
+							"tests['response json contains valor'] = _.has(responseJSON, 'valor');\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": "http://5b847b30db24a100142dce1b.mockapi.io/api/v1/simulador"
+			},
+			"response": [
+				{
+					"name": "Default",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": "http://5b847b30db24a100142dce1b.mockapi.io/api/v1/simulador"
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": ""
+				}
+			]
+		}
+	],
+	"protocolProfileBehavior": {}
+}
